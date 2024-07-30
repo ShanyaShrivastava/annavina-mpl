@@ -1,0 +1,154 @@
+{% extends 'base.html'%}
+<!DOCTYPE html>
+{% load static %}
+{%block content%}
+<!DOCTYPE html>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Login</title>
+<style>
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .justify-content-center {
+    justify-content: center;
+  }
+  
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .contents {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form styles */
+  form input{
+    padding : 3px;
+    padding-left : 6px;
+    border-radius : 10px;
+    width : 100% ;
+    background-color : red;
+  }
+  .form-block {
+    margin-top: 20px;
+  }
+  
+  .form-block span.mb-0 {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .form-block form {
+    margin-top: 20px;
+  }
+  
+  .form-block label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .form-block input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .form-block.control--checkbox {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .form-block.control--checkbox.caption {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .form-block.forgot-pass {
+    font-size: 14px;
+    color: #337ab7;
+    text-decoration: none;
+  }
+  
+  .form-block.forgot-pass:hover {
+    color: #23527c;
+  }
+  
+  .form-block input[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .form-block input[type="submit"]:hover {
+    background-color: #23527c;
+  }
+  
+  .d-flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ml-auto {
+    margin-left: auto;
+  }
+  
+  .btn-pill {
+    border-radius: 20px;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+</style>
+</head>
+<body>
+  <div class="font-bold flex justify-content-center font-verdana text-xl mt-20">Be a Provider</div>
+      <div class="justify-content-center ">
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="form-block">
+                <span class="mb-0 text-muted">
+                  {% if msg %}
+                    {{ msg }}
+                  {% endif %}
+                </span>
+                <form method="post" class="bg-gray-200 p-5 shadow-xl rounded-2xl">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <div class="flex item-center py-5 gap-3">
+                    <label class="control control--checkbox mb-0 flex items-center">
+                      <span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked" class="w-auto" />
+                    </label>
+                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                  </div>
+                  <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-primary">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div
+</body>
+</html>
+{%endblock%}

@@ -1,0 +1,92 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  </head>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.form-container {
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+</style>
+  <body>
+    <h1 class="flex justify-center text-xl font-bold text-black font-verdana" >Register as provider</h1>
+<div class="flex justify-center">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group first">
+        <label for="username">Username</label>
+        {{ form.username }}
+      </div>
+      <div class="form-group first">
+        <label for="email">Email</label>
+        {{ form.email}}
+      </div>
+      <div class="form-group last mb-4">
+        <label for="password">Password</label>
+        {{ form.password1 }}
+      </div>
+      <div class="form-group last mb-4">
+        <label for="password">Confirm Password</label>
+        {{ form.password2 }}
+      </div>
+      <div class="d-flex mb-5 align-items-center">
+        <label class="control control--checkbox mb-0"><span class="caption">Admin</span>
+          {{ form.is_admin }}
+        <div class="control__indicator"></div>
+        </label>
+      </div>
+      <span class="text-error">{{ form.errors }}</span>
+      <input type="submit" value="Register" class="btn btn-pill text-white btn-block btn-primary">
+    </form>
+  </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock %}

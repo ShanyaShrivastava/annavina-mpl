@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+  }
+  .header {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight:bold;
+  }
+  .total-quantity {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #333;
+  }
+  .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      background-color: #FFC100;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+  }
+  .btn:hover {
+      background-color: #ffb300; /* Darker amber on hover */
+  }
+</style>
+  <div class=""">
+    <div class="container">
+      <h1 class="header">Saved Food Through Annavinna</h1>
+      <p class="total-quantity">Total Saved Food Through Annavinna: {{ total_quantity }} products</p>
+  </div>
+  <div class="">
+    <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border h-50">
+    </div>
+    <div class="">
+      <div class="flex items-center justify-between mb-2">
+        <h1 class="text-3xl font-['Kode_mono'] font-bold leading-relaxed text-amber-100 text-center w-full bg-amber-900">
+           Food Providers
+        </h1>
+      </div>
+      <ul class="flex w-full flex-wrap gap-5 justify-center mt-5 font-['Roboto']">
+        {% for foodmart in foodmarts %}
+            <li class="w-[300px] bg-amber-50 py-5 rounded-xl text-center shadow-xl text-amber-900">
+                <h2 class="font-bold text-xl mb-5 bg-amber-900 py-2 text-amber-100">{{ foodmart.name }}</h2>
+                <p><span class="font-semibold">Description</span>: {{ foodmart.description }}</p>
+                <p><span class="font-semibold">Address</span>: {{ foodmart.address }}</p>
+                <p><span class="font-semibold">Call</span>: {{ foodmart.phone_number }}</p>
+                <p><span class="font-semibold">Quantity</span>: {{ foodmart.quantity }}</p>
+            </li>
+        {% empty %}
+        <li class="w-full text-center text-gray-600">No food marts found.</li>
+        {% endfor %}
+    </ul>
+    </div>
+    </div>
+  </div>
+{% endblock %}

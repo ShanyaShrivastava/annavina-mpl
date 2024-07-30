@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<section class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto mt-4 p-4 text-justify border-orange-800 border-4">
+            <p class="text-xl pl-10 pr-10 font-verdana mt-5">
+                <Strong>Each day, 25,000 people, including more than 10,000 children, die from hunger and related causes.</Strong>
+                Welcome to Annavinna, where we're committed to revolutionizing how we handle food waste. At Annavinna, we believe that every meal counts, and so does every scrap of food. Our mission is simple yet profound: to reduce food waste and its environmental impact by providing innovative solutions for homes, businesses, and communities. We offer a range of services designed to make food waste management effortless and effective, whether through composting solutions, educational programs, or consulting services for businesses aiming to minimize their environmental footprint.
+    
+                Founded on the principles of sustainability and community, Annavinna is more than just a service provider; we're your partner in creating a greener future. By empowering individuals and organizations with the knowledge and tools to tackle food waste head-on, we aim to inspire lasting change. Join us in our journey towards a world where food is valued and waste is minimized, because together, we can make a significant difference for generations to come. Together, let's turn today's scraps into tomorrow's resources and build a healthier planet one meal at a time with Annavinna.
+            </p>
+            <div class='mt-10 ml-8 w-96 h-96 flex gap-5 align-center'>
+            <img src="{%static '1.jpg'%}">
+            <img src="{%static '3.jpg'%}">
+            <img src="{%static '5.jpeg'%}">
+            </div>
+    </section>
+
+</body>
+</html>
+{% endblock %}

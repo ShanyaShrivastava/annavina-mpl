@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+    <title>FoodMarts List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f9f4; /* Light green background */
+            margin: 20px;
+            color: #333;
+        }
+
+        /* Styling for the heading */
+        h2 {
+            color: #2e8b57; /* Sea green color for title */
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Add a green line between title and foodmarts */
+        .divider {
+            border-bottom: 2px solid #2e8b57; /* Sea green color for line */
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the foodmart items container */
+        #foodmarts-list {
+            max-width: 900px;
+            margin: 0 auto; /* Center align the foodmarts list */
+        }
+
+        /* Styling for the foodmart items */
+        .foodmart-item {
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 25px; /* Increased margin to space items further apart */
+            border-radius: 8px;
+            background-color: #fff; /* White background for the cards */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            width: 100%; /* Ensure the card takes up full width of its container */
+            max-width: 800px; /* Maximum width for the card */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .foodmart-item:hover {
+            background-color: #eaf8e8; /* Very light green for hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+        .foodmart-item p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 16px; /* Increased font size for better readability */
+        }
+
+        .foodmart-item .name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #228b22; /* Forest green color for name */
+        }
+
+        .foodmart-item .description {
+            color: #666; /* Dark gray for description */
+            margin-top: 5px;
+        }
+
+        .foodmart-item .distance {
+            color: #555; /* Darker gray for distance */
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Styling for error messages */
+        .error {
+            color: #e74c3c; /* Red color for errors */
+            font-weight: bold;
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for no foodmarts found message */
+        #no-foodmarts {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+        }
+
+        /* Hover effects for foodmart list */
+        .foodmart-item .name:hover {
+            color: #006400; /* Darker green for hover */
+        }
+
+        .foodmart-item .description:hover {
+            color: #444;
+        }
+
+        .foodmart-item .distance:hover {
+            color: #006400; /* Darker green for hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .foodmart-item {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .foodmart-item .name {
+                font-size: 16px;
+            }
+
+            .foodmart-item .distance {
+                font-size: 14px;
+            }
+        }
+    </style>
+<body>
+    <h2>Nearby Foodmart</h2>
+    <div class="divider"></div>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        {% if foodmarts %}
+            <div id="foodmarts-list">
+                {% for foodmart in foodmarts %}
+                    <div class="foodmart-item">
+                        <p class="name">{{ foodmart.name }}</p>
+                        <p class="description">{{ foodmart.description }}</p>
+                        <p class="distance">{{ foodmart.distance|floatformat:2 }} Km</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p id="no-foodmarts">No foodmarts found.</p>
+        {% endif %}
+    {% endif %}
+</body>
+{% endblock %}
